@@ -9,15 +9,19 @@ client = OpenAI(
     api_key=os.getenv("API_KEY")
 )
 
-response = client.chat.completions.create(
-    model=os.getenv("MODEL"),
-    messages=[
-        {
-            "role": "user",
-            "content": "What is the capital of France?"
-        }
-    ]
-)
 
-print("ai response:")
-print(response.choices[0].message.content)
+while True:
+    user_input = input("\nYou: ")
+    if user_input.lower() in ["bye", "quit", "exit"]:
+        break
+    response = client.chat.completions.create(
+        model=os.getenv("MODEL"),
+        messages=[
+            {
+                "role": "user",
+                "content": user_input 
+            }
+        ]
+    )
+
+    print("Aistotle: " + response.choices[0].message.content)
