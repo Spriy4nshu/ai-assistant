@@ -22,3 +22,8 @@
     - User is basically whoever is trying to ask questions or give command.
     - Assistant is models own replies.
     - System is the hidden instructions for the model for its own behavior.
+- LLMs are STATELESS -- they dont remember previous text unless sent again using various techniques
+    - Sliding window (lose context of older chat text)
+    - Truncate (summarize the chat)
+    - Compact (important point are sent instead of the whole chat)
+    - RAG (a separat vertorized database for llm to access instead of sending the whole chat again and again)
